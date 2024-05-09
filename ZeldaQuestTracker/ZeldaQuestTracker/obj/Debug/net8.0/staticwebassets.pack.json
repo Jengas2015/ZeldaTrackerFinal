@@ -1,0 +1,41 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\areja\\source\\repos\\ZeldaQuestTracker\\ZeldaQuestTracker\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\ZeldaQuestTracker.bundle.scp.css",
+      "PackagePath": "staticwebassets\\ZeldaQuestTracker.bundle.scp.css"
+    },
+    {
+      "Id": "C:\\Users\\areja\\source\\repos\\ZeldaQuestTracker\\ZeldaQuestTracker\\wwwroot\\app.css",
+      "PackagePath": "staticwebassets\\app.css"
+    },
+    {
+      "Id": "C:\\Users\\areja\\source\\repos\\ZeldaQuestTracker\\ZeldaQuestTracker\\wwwroot\\bootstrap\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\bootstrap\\bootstrap.min.css"
+    },
+    {
+      "Id": "C:\\Users\\areja\\source\\repos\\ZeldaQuestTracker\\ZeldaQuestTracker\\wwwroot\\bootstrap\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\bootstrap\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\areja\\source\\repos\\ZeldaQuestTracker\\ZeldaQuestTracker\\wwwroot\\favicon.png",
+      "PackagePath": "staticwebassets\\favicon.png"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.ZeldaQuestTracker.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.ZeldaQuestTracker.props",
+      "PackagePath": "build\\ZeldaQuestTracker.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.ZeldaQuestTracker.props",
+      "PackagePath": "buildMultiTargeting\\ZeldaQuestTracker.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.ZeldaQuestTracker.props",
+      "PackagePath": "buildTransitive\\ZeldaQuestTracker.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

@@ -1,0 +1,34 @@
+﻿@page "/quests"
+@using Microsoft.AspNetCore.Components.QuickGrid
+@inject ZeldaQuestTracker.Data.ZeldaQuestTrackerContext DB
+@using ZeldaQuestTracker.Components.Model
+
+<PageTitle>Quest List</PageTitle>
+
+<h1>Quest List</h1>
+
+<p>
+    <a href="quests/create" class="btn btn-primary">Create New</a>
+</p>
+
+
+<MudTable Items="DB.Quests">
+    <HeaderContent>
+        <MudTh>Quest Name</MudTh>
+        <MudTh>Youtube Video</MudTh>
+        <MudTh>Actions</MudTh>
+    </HeaderContent>
+    <RowTemplate Context="quests">
+        <MudTd>
+            <MudLink Href="@(quests.Walkthrough.StartsWith("http://") || quests.Walkthrough.StartsWith("https://") ? quests.Walkthrough : "http://" + quests.Walkthrough)">@quests.Name</MudLink>
+        </MudTd>
+        <MudTd>
+            <MudLink Href="@(quests.Video.StartsWith("http://") || quests.Video.StartsWith("https://") ? quests.Video : "http://" + quests.Video)"><img src="@(string.IsNullOrEmpty(quests.Video) || !quests.Video.Contains("v=") ? "" : $"https://img.youtube.com/vi/{quests.Video.Split("v=")[1]}/0.jpg")"/></MudLink>
+        </MudTd>
+        <MudTd>
+            <MudLink Href="@($"quests/edit?id={quests.Id}")">Edit</MudLink> |
+            <MudLink Href="@($"quests/details?id={quests.Id}")">Details</MudLink> |
+            <MudLink Href="@($"quests/delete?id={quests.Id}")">Delete</MudLink>
+        </MudTd>
+    </RowTemplate>
+</MudTable>

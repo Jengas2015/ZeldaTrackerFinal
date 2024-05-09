@@ -1,0 +1,56 @@
+﻿@page "/quests/create"
+@inject ZeldaQuestTracker.Data.ZeldaQuestTrackerContext DB
+@using ZeldaQuestTracker.Components.Model
+@inject NavigationManager NavigationManager
+
+<PageTitle>Create a New Quest</PageTitle>
+
+<h1>Create a New Quest</h1>
+
+<hr />
+
+<MudGrid>
+    <MudItem xs="12" sm="6" md="4">
+        <MudForm @ref="form" Model="Quests" OnValidSubmit="AddQuests">
+            <MudTextField Label="Name" @bind-Value="Quests.Name" For="() => Quests.Name" Required="true" />
+            <MudTextField Label="Walkthrough Link" @bind-Value="Quests.Walkthrough" For="() => Quests.Walkthrough" Required="true" />
+            <MudTextField Label="Youtube Link" @bind-Value="Quests.Video" For="() => Quests.Video" Required="true" 
+                Validation="@((string name) => ValidateName(name))"/>
+            <MudButton ButtonType="ButtonType.Submit" Color="Color.Primary" Variant="Variant.Filled">Create</MudButton>
+        </MudForm>
+    </MudItem>
+</MudGrid>
+
+<div class="mt-2">
+    <a href="/quests">Back to List</a>
+</div>
+
+@code {
+    private MudForm form;
+
+    private string ValidateName(string name)
+    {
+        if(string.IsNullOrEmpty(name))
+        {
+            return "This field cannot be empty";
+        }
+
+        if (!name.Contains("youtube"))
+        {
+            return "Please enter a valid Youtube link";
+        }
+
+        return null;
+    }
+
+    [SupplyParameterFromForm]
+    public Quests Quests { get; set; } = new();
+
+    // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
+    public async Task AddQuests()
+    {
+        DB.Quests.Add(Quests);
+        await DB.SaveChangesAsync();
+        NavigationManager.NavigateTo("/quests");
+    }
+}
